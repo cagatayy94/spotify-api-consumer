@@ -14,3 +14,4 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/form-submit', 'HomeController@formSubmit')->name('form-submit');
