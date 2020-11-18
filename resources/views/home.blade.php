@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container" id="app">
     <div class="row justify-content-center">
@@ -9,18 +8,18 @@
                 <div class="card-body">
                     <div class="container">
                         <form class="form" action="{{ url('form-submit') }}" method="get" id="search-form">
-                            <div class="alert alert-danger" role="alert">There is an error</div>
+                            <div class="alert alert-danger" hidden="hidden" role="alert">There is an error</div>
                             <div class="form-row">
                                 <div class="col-md-8 mb-3">
                                     <label for="search">Search</label>
-                                    <input type="text" name="search" class="form-control is-invalid" id="search" placeholder="Search album, artist, playlist, track" value="" required>
+                                    <input type="text" name="search" class="form-control required" id="search" placeholder="Search album, artist, playlist, track" value="" required>
                                     <div class="invalid-feedback">
                                         Please write at least one character
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="pagination">Item Per Page</label>
-                                     <select class="form-control" name="pagination" id="pagination">
+                                    <label for="limit">Item Per Page</label>
+                                     <select class="form-control required" name="limit" id="limit">
                                         <option value="10">10</option>
                                         <option value="20">20</option>
                                         <option value="50">50</option>
@@ -31,25 +30,25 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <div class="form-check">
-                                            <input class="form-check-input is-invalid" type="checkbox" value="1" name="album" id="album">
+                                            <input class="form-check-input" type="checkbox" value="1" name="album" id="album">
                                             <label class="form-check-label" for="album">
                                                 Include Albums
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input is-invalid" type="checkbox" value="1" name="artist" id="artist">
+                                            <input class="form-check-input" type="checkbox" value="1" name="artist" id="artist">
                                             <label class="form-check-label" for="artist">
                                                 Include Artist
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input is-invalid" type="checkbox" value="1" name="playlist" id="playlist">
+                                            <input class="form-check-input" type="checkbox" value="1" name="playlist" id="playlist">
                                             <label class="form-check-label" for="playlist">
                                                 Include Playlist
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input is-invalid" type="checkbox" value="1" name="track" id="track">
+                                            <input class="form-check-input" type="checkbox" value="1" name="track" id="track">
                                             <label class="form-check-label" for="track">
                                                 Include Track
                                             </label>
@@ -64,86 +63,7 @@
                         </form>
                         <hr>
                         <div id="form-result">
-                            <div class="container">
-                                <h3>Albums</h3>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Img</th>
-                                            <th scope="col">Name<th>
-                                            <th scope="col">Release Date</th>
-                                            <th scope="col">Total Tracks</th>
-                                            <th scope="col">Artists</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d000048511e3d153c8ecda03a495ca811">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/album/6kvCH4eS92QkpBNdTmjLEz" target="_blank">Blues</a>
-                                            <th>
-                                            <th scope="col">1994-04-18</th>
-                                            <th scope="col">11</th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/776Uo845nYHJpNaStv1Ds4" target="_blank">Jimi Hendrix</a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d000048511e3d153c8ecda03a495ca811">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/album/6kvCH4eS92QkpBNdTmjLEz" target="_blank">Blues</a>
-                                            <th>
-                                            <th scope="col">1994-04-18</th>
-                                            <th scope="col">11</th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/776Uo845nYHJpNaStv1Ds4" target="_blank">Jimi Hendrix</a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d000048511e3d153c8ecda03a495ca811">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/album/6kvCH4eS92QkpBNdTmjLEz" target="_blank">Blues</a>
-                                            <th>
-                                            <th scope="col">1994-04-18</th>
-                                            <th scope="col">11</th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/776Uo845nYHJpNaStv1Ds4" target="_blank">Jimi Hendrix</a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d000048511e3d153c8ecda03a495ca811">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/album/6kvCH4eS92QkpBNdTmjLEz" target="_blank">Blues</a>
-                                            <th>
-                                            <th scope="col">1994-04-18</th>
-                                            <th scope="col">11</th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/776Uo845nYHJpNaStv1Ds4" target="_blank">Jimi Hendrix</a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d000048511e3d153c8ecda03a495ca811">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/album/6kvCH4eS92QkpBNdTmjLEz" target="_blank">Blues</a>
-                                            <th>
-                                            <th scope="col">1994-04-18</th>
-                                            <th scope="col">11</th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/776Uo845nYHJpNaStv1Ds4" target="_blank">Jimi Hendrix</a>
-                                            </th>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div id="albums-table-holder" class="container">
                                 <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -163,99 +83,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="container">
-                                <h3>Artists</h3>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Img</th>
-                                            <th scope="col">Name<th>
-                                            <th scope="col">Followers</th>
-                                            <th scope="col">Popularity</th>
-                                            <th scope="col">Genres</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/9b7abbcdb195e6f3be974c675525a9aeb584869e">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/5AVBFCn4Hq4KY2Xjc5Gj4y" target="_blank">Blues Saraceno</a>
-                                            <th>
-                                            <th scope="col">88653</th>
-                                            <th scope="col">57</th>
-                                            <th scope="col">
-                                                modern alternative rock, modern blues rock, rebel blues
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/9b7abbcdb195e6f3be974c675525a9aeb584869e">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/5AVBFCn4Hq4KY2Xjc5Gj4y" target="_blank">Blues Saraceno</a>
-                                            <th>
-                                            <th scope="col">88653</th>
-                                            <th scope="col">57</th>
-                                            <th scope="col">
-                                                modern alternative rock, modern blues rock, rebel blues
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/9b7abbcdb195e6f3be974c675525a9aeb584869e">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/5AVBFCn4Hq4KY2Xjc5Gj4y" target="_blank">Blues Saraceno</a>
-                                            <th>
-                                            <th scope="col">88653</th>
-                                            <th scope="col">57</th>
-                                            <th scope="col">
-                                                modern alternative rock, modern blues rock, rebel blues
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/9b7abbcdb195e6f3be974c675525a9aeb584869e">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/5AVBFCn4Hq4KY2Xjc5Gj4y" target="_blank">Blues Saraceno</a>
-                                            <th>
-                                            <th scope="col">88653</th>
-                                            <th scope="col">57</th>
-                                            <th scope="col">
-                                                modern alternative rock, modern blues rock, rebel blues
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/9b7abbcdb195e6f3be974c675525a9aeb584869e">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/5AVBFCn4Hq4KY2Xjc5Gj4y" target="_blank">Blues Saraceno</a>
-                                            <th>
-                                            <th scope="col">88653</th>
-                                            <th scope="col">57</th>
-                                            <th scope="col">
-                                                modern alternative rock, modern blues rock, rebel blues
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">
-                                                <img width="64" height="64" src="https://i.scdn.co/image/9b7abbcdb195e6f3be974c675525a9aeb584869e">
-                                            </th>
-                                            <th scope="col">
-                                                <a href="https://open.spotify.com/artist/5AVBFCn4Hq4KY2Xjc5Gj4y" target="_blank">Blues Saraceno</a>
-                                            <th>
-                                            <th scope="col">88653</th>
-                                            <th scope="col">57</th>
-                                            <th scope="col">
-                                                modern alternative rock, modern blues rock, rebel blues
-                                            </th>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div id="artists-table-holder" class="container">
                                 <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -275,118 +103,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="container">
-                                <h3>Tracks</h3>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Img</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Album</th>
-                                            <th scope="col">Artists</th>
-                                            <th scope="col">Popularity</th>
-                                            <th scope="col">Track Number</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d0000485121e66a71d77140d90e8b12f8">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/track/5Wh2O8fRff8CcMRn5GD1KW" target="_blank">Blues For My Baby And Me - Remastered 2017</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/album/2IrFfPpiIzEEkYoIsIwdQw" target="_blank">Jewel Box</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/artist/3PhoLpVuITZKcymswpck5b" target="_blank">Elton John</a>
-                                            </td>
-                                            <td>20</td>
-                                            <td>13</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d0000485121e66a71d77140d90e8b12f8">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/track/5Wh2O8fRff8CcMRn5GD1KW" target="_blank">Blues For My Baby And Me - Remastered 2017</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/album/2IrFfPpiIzEEkYoIsIwdQw" target="_blank">Jewel Box</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/artist/3PhoLpVuITZKcymswpck5b" target="_blank">Elton John</a>
-                                            </td>
-                                            <td>20</td>
-                                            <td>13</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d0000485121e66a71d77140d90e8b12f8">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/track/5Wh2O8fRff8CcMRn5GD1KW" target="_blank">Blues For My Baby And Me - Remastered 2017</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/album/2IrFfPpiIzEEkYoIsIwdQw" target="_blank">Jewel Box</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/artist/3PhoLpVuITZKcymswpck5b" target="_blank">Elton John</a>
-                                            </td>
-                                            <td>20</td>
-                                            <td>13</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d0000485121e66a71d77140d90e8b12f8">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/track/5Wh2O8fRff8CcMRn5GD1KW" target="_blank">Blues For My Baby And Me - Remastered 2017</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/album/2IrFfPpiIzEEkYoIsIwdQw" target="_blank">Jewel Box</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/artist/3PhoLpVuITZKcymswpck5b" target="_blank">Elton John</a>
-                                            </td>
-                                            <td>20</td>
-                                            <td>13</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d0000485121e66a71d77140d90e8b12f8">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/track/5Wh2O8fRff8CcMRn5GD1KW" target="_blank">Blues For My Baby And Me - Remastered 2017</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/album/2IrFfPpiIzEEkYoIsIwdQw" target="_blank">Jewel Box</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/artist/3PhoLpVuITZKcymswpck5b" target="_blank">Elton John</a>
-                                            </td>
-                                            <td>20</td>
-                                            <td>13</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67616d0000485121e66a71d77140d90e8b12f8">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/track/5Wh2O8fRff8CcMRn5GD1KW" target="_blank">Blues For My Baby And Me - Remastered 2017</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/album/2IrFfPpiIzEEkYoIsIwdQw" target="_blank">Jewel Box</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/artist/3PhoLpVuITZKcymswpck5b" target="_blank">Elton John</a>
-                                            </td>
-                                            <td>20</td>
-                                            <td>13</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div id="playlist-table-holder" class="container">
                                 <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -406,86 +123,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="container">
-                                <h3>Playlists</h3>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Img</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Owner</th>
-                                            <th scope="col">Tracks</th>
-                                            <th scope="col">Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67706f00000003053676e87d17a88e7da65b56">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/playlist/37i9dQZF1DXd9rSDyQguIk" target="_blank">Blues Classics</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/user/spotify" target="_blank">Spotify</a>
-                                            </td>
-                                            <td>70</td>
-                                            <td>Nothing but classic blues tracks</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67706f00000003053676e87d17a88e7da65b56">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/playlist/37i9dQZF1DXd9rSDyQguIk" target="_blank">Blues Classics</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/user/spotify" target="_blank">Spotify</a>
-                                            </td>
-                                            <td>70</td>
-                                            <td>Nothing but classic blues tracks</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67706f00000003053676e87d17a88e7da65b56">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/playlist/37i9dQZF1DXd9rSDyQguIk" target="_blank">Blues Classics</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/user/spotify" target="_blank">Spotify</a>
-                                            </td>
-                                            <td>70</td>
-                                            <td>Nothing but classic blues tracks</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67706f00000003053676e87d17a88e7da65b56">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/playlist/37i9dQZF1DXd9rSDyQguIk" target="_blank">Blues Classics</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/user/spotify" target="_blank">Spotify</a>
-                                            </td>
-                                            <td>70</td>
-                                            <td>Nothing but classic blues tracks</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img width="64" height="64" src="https://i.scdn.co/image/ab67706f00000003053676e87d17a88e7da65b56">
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/playlist/37i9dQZF1DXd9rSDyQguIk" target="_blank">Blues Classics</a>
-                                            </td>
-                                            <td>
-                                                <a href="https://open.spotify.com/user/spotify" target="_blank">Spotify</a>
-                                            </td>
-                                            <td>70</td>
-                                            <td>Nothing but classic blues tracks</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div id="tracks-table-holder" class="container">
                                 <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -515,7 +153,211 @@
 </div>
 <script type="text/javascript">
     $(function() {
-        console.log();
+        $('#search-form').on('submit', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $('.alert-danger').attr('hidden', 'hidden');
+
+            var self = $(this);
+            var url = self.attr('action');
+            var method = self.attr('method');
+            var data = self.serialize();
+
+            self.find('[type="submit"]').attr('disabled', 'disabled');
+
+            var isValid = true;
+
+            self.find('.required').each(function() {
+                if (!$(this).val().length > 0 || $(this).val() == '') {
+                    isValid = false;
+                    $(this, "input").addClass('is-invalid');
+                } else {
+                    $(this, "input").removeClass('is-invalid');
+                }
+            });
+
+            if (isValid) {
+                $.ajax({
+                    type: method,
+                    url: url,
+                    data: data,
+                    success: function (result) {
+                        if (result.success) {
+                            $('.alert-danger').attr('hidden', 'hidden');
+                            self.find('[type="submit"]').removeAttr('disabled');
+                            if (result.data.albums) {
+                                generateAlbumTable(result.data.albums);
+                            }
+                            if (result.data.artists) {
+                                generateArtistTable(result.data.artists);
+                            }
+                            if (result.data.playlists) {
+                                generatePlaylistTable(result.data.playlists);
+                            }
+                            if (result.data.tracks) {
+                                generateTracksTable(result.data.tracks);
+                            }
+                        } else {
+                            $('.alert-danger').removeAttr('hidden').text(result.error.message);
+                            self.find('[type="submit"]').removeAttr('disabled');
+                        }
+                    }
+                });
+            } else {
+                self.find('[type="submit"]').removeAttr('disabled');
+            }
+        });
     });
+
+    function generateAlbumTable(data){
+        var table = '<h3>Albums</h3>' +
+                    '<table class="table">' +
+                        '<thead>' +
+                            '<tr>' +
+                                '<th scope="col">Img</th>' +
+                                '<th scope="col">Name<th>' +
+                                '<th scope="col">Release Date</th>' +
+                                '<th scope="col">Total Tracks</th>' +
+                                '<th scope="col">Artists</th>' +
+                            '</tr>' +
+                        '</thead>' +
+                        '<tbody>';
+
+        $.each(data.items, function (key, value) {
+            table += '<tr>' +
+                '<th scope="col">' +
+                    '<img width="64" height="64" src="' + value.images[0].url + '">' +
+                '</th>' +
+                '<th scope="col">' +
+                    '<a href="' + value.external_urls.spotify + '" target="_blank">' + value.name + '</a>' +
+                '<th>' +
+                '<th scope="col">' + value.release_date + '</th>' +
+                '<th scope="col">' + value.total_tracks + '</th>' +
+                '<th scope="col">' +
+                    '<a href="' + value.artists[0].external_urls.spotify + '" target="_blank">' + value.artists[0].name + '</a>' +
+                '</th>' +
+            '</tr>';
+        });
+
+        table += '</tbody></table>';
+
+        $('#albums-table-holder').html(table);
+    }
+
+    function generateArtistTable(data){
+        var table = '<h3>Artists</h3>' +
+                    '<table class="table">' +
+                        '<thead>' +
+                            '<tr>' +
+                                '<th scope="col">Img</th>' +
+                                '<th scope="col">Name<th>' +
+                                '<th scope="col">Followers</th>' +
+                                '<th scope="col">Popularity</th>' +
+                                '<th scope="col">Genres</th>' +
+                            '</tr>' +
+                        '</thead>' +
+                        '<tbody>';
+
+        $.each(data.items, function (key, value) {
+            table += '<tr>' +
+                '<th scope="col">' +
+                    '<img width="64" height="64" src="' + value.images[0].url + '">' +
+                '</th>' +
+                '<th scope="col">' +
+                    '<a href="' + value.external_urls.spotify + '" target="_blank">' + value.name + '</a>' +
+                '<th>' +
+                '<th scope="col">' + value.followers.total + '</th>' +
+                '<th scope="col">' + value.popularity + '</th>' +
+                '<th scope="col">' +
+                    value.genres +
+                '</th>' +
+            '</tr>';
+        });
+
+        table += '</tbody></table>';
+
+        $('#artists-table-holder').html(table);
+    }
+
+    function generatePlaylistTable(data){
+        var table = '<h3>Playlist</h3>' +
+                    '<table class="table">' +
+                        '<thead>' +
+                            '<tr>' +
+                                '<th scope="col">Img</th>' +
+                                '<th scope="col">Name<th>' +
+                                '<th scope="col">Owner</th>' +
+                                '<th scope="col">Tracks</th>' +
+                                '<th scope="col">Description</th>' +
+                            '</tr>' +
+                        '</thead>' +
+                        '<tbody>';
+
+        $.each(data.items, function (key, value) {
+            table += '<tr>' +
+                '<th scope="col">' +
+                    '<img width="64" height="64" src="' + value.images[0].url + '">' +
+                '</th>' +
+                '<th scope="col">' +
+                    '<a href="' + value.external_urls.spotify + '" target="_blank">' + value.name + '</a>' +
+                '<th>' +
+                '<th scope="col">' +
+                    '<a href="' + value.owner.external_urls.spotify + '" target="_blank">' + value.owner.display_name +'</a>' +
+                '</th>' +
+                '<th scope="col">' + value.tracks.total + '</th>' +
+                '<th scope="col">' +
+                    value.description +
+                '</th>' +
+            '</tr>';
+        });
+
+        table += '</tbody></table>';
+
+        $('#playlist-table-holder').html(table);
+    }
+
+    function generateTracksTable(data){
+        var table = '<h3>Tracks</h3>' +
+                    '<table class="table">' +
+                        '<thead>' +
+                            '<tr>' +
+                                '<th scope="col">Img</th>' +
+                                '<th scope="col">Name<th>' +
+                                '<th scope="col">Album</th>' +
+                                '<th scope="col">Artists</th>' +
+                                '<th scope="col">Popularity</th>' +
+                                '<th scope="col">Track Number</th>' +
+                            '</tr>' +
+                        '</thead>' +
+                        '<tbody>';
+
+        $.each(data.items, function (key, value) {
+            table += '<tr>' +
+                '<th scope="col">' +
+                    '<img width="64" height="64" src="' + value.album.images[0].url + '">' +
+                '</th>' +
+                '<th scope="col">' +
+                    '<a href="' + value.external_urls.spotify + '" target="_blank">' + value.name + '</a>' +
+                '<th>' +
+                '<th scope="col">' +
+                    '<a href="' + value.album.external_urls.spotify + '" target="_blank">' + value.album.name +'</a>' +
+                '</th>' +
+                '<th scope="col">' +
+                    '<a href="' + value.artists[0].external_urls.spotify + '" target="_blank">' + value.artists[0].name +'</a>' +
+                '</th>' +
+                '<th scope="col">' +
+                    value.popularity +
+                '</th>' +
+                '<th scope="col">' +
+                    value.track_number +
+                '</th>' +
+            '</tr>';
+        });
+
+        table += '</tbody></table>';
+
+        $('#tracks-table-holder').html(table);
+    }
 </script>
 @endsection

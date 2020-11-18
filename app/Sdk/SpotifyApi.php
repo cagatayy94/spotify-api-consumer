@@ -84,7 +84,7 @@ class SpotifyApi
     {
         $this->obtainToken();
 
-        $url = $this->spotifyEndpoint . $resource . '.json';
+        $url = $this->spotifyEndpoint . $resource;
 
         // prepare the API call
         $curlHandler = curl_init();
@@ -101,7 +101,7 @@ class SpotifyApi
             }
         }
 
-        curl_setopt($curlHandler, CURLOPT_URL, $url);
+        curl_setopt($curlHandler, CURLOPT_URL, urldecode($url));
         curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, $verb);
         curl_setopt($curlHandler, CURLOPT_HTTPHEADER, [
             'Content-Type: application/json',
@@ -128,20 +128,8 @@ class SpotifyApi
             throw new \Exception('Spotify: There is no result');
         }
 
-        if (!empty($jsonResult['error']['exception'][0]['message'])) {
-            throw new \Exception('Spotify: ' . $jsonResult['error']['exception'][0]['message']);
-        }
-
-        if (!$jsonResult['success']) {
-            if (!empty($jsonResult['error']['message'])) {
-                throw new \Exception('Spotify: ' . $jsonResult['error']['message']);
-            } else {
-                throw new \Exception('Spotify: There is an error');
-            }
-        }
-
         if ($httpCode != 200) {
-            throw new \Exception('Spotify: Failed');
+            throw new \Exception('Spotify: Request failed');
         }
 
         return $jsonResult;

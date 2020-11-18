@@ -16,23 +16,48 @@ class Spotify
         $this->spotifyApi = $spotifyApi;
     }
 
-    public function performSearch($search, $pagination, $album = null, $artist = null, $playlist = null, $track = null)
+    public function performSearch($search, $limit, $offset, $album = null, $artist = null, $playlist = null, $track = null)
     {
         if (!$album && !$artist && !$playlist && !$track) {
-            throw new \Exception("Please select at least one item");
+            throw new \Exception("Please include at least one item");
         }
 
         if (!$search) {
             throw new \Exception("Please type at least one character");
         }
 
-        if (!$pagination || !intval($pagination)) {
+        if (!$limit || !intval($limit)) {
             throw new \Exception("Please specify valid limit");
         }
 
-        
-        
-        return func_get_args();
+        $searchTypes = [];
+
+        if ($album) {
+            $searchTypes[] = 'album';
+        }
+
+        if ($artist) {
+            $searchTypes[] = 'artist';
+        }
+
+        if ($playlist) {
+            $searchTypes[] = 'playlist';
+        }
+
+        if ($track) {
+            $searchTypes[] = 'track';
+        }
+
+        $parameters = [
+            'type'          => implode(',', $searchTypes),
+            'limit'         => $limit,
+            'q'             => $search,
+            'offset'        => $offset
+        ];
+
+        $apiResult = $this->spotifyApi->request('search', $this->spotifyApi::VERB_GET, $parameters);
+
+        return $apiResult;
     }
 
 

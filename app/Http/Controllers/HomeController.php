@@ -30,14 +30,16 @@ class HomeController extends Controller
     public function formSubmit(Request $request, SpotifyService $spotifyService)
     {
         $search     = $request->request->get('search');
-        $pagination = $request->request->get('pagination');
+        $limit      = $request->request->get('limit');
         $album      = $request->request->get('album');
         $artist     = $request->request->get('artist');
         $playlist   = $request->request->get('playlist');
         $track      = $request->request->get('track');
+        $offset     = $request->request->get('offset') ? $request->request->get('offset') : "0";
+
 
         try {
-            $data = $spotifyService->performSearch($search, $pagination, $album, $artist, $playlist, $track);
+            $data = $spotifyService->performSearch($search, $limit, $offset, $album, $artist, $playlist, $track);
 
             return response()->json([
                 'success' => true, 
