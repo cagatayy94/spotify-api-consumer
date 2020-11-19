@@ -101,7 +101,7 @@ class SpotifyApi
             }
         }
 
-        curl_setopt($curlHandler, CURLOPT_URL, urldecode($url));
+        curl_setopt($curlHandler, CURLOPT_URL, str_replace(' ', '%20', urldecode($url)));
         curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, $verb);
         curl_setopt($curlHandler, CURLOPT_HTTPHEADER, [
             'Content-Type: application/json',
