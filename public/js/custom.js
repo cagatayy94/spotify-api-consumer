@@ -122,6 +122,11 @@ $(function() {
     });
 
     function generateAlbumTable(data){
+
+        if (!data.items.length) {
+            return false;
+        }
+
         var table = '<h3>Albums</h3>' +
                     '<table class="table">' +
                         '<thead>' +
@@ -158,6 +163,11 @@ $(function() {
     }
 
     function generateArtistTable(data){
+
+        if (!data.items.length) {
+            return false;
+        }
+
         var table = '<h3>Artists</h3>' +
                     '<table class="table">' +
                         '<thead>' +
@@ -199,6 +209,11 @@ $(function() {
     }
 
     function generatePlaylistTable(data){
+
+        if (!data.items.length) {
+            return false;
+        }
+
         var table = '<h3>Playlist</h3>' +
                     '<table class="table">' +
                         '<thead>' +
@@ -238,6 +253,11 @@ $(function() {
     }
 
     function generateTracksTable(data){
+
+        if (!data.items.length) {
+            return false;
+        }
+
         var table = '<h3>Tracks</h3>' +
                     '<table class="table">' +
                         '<thead>' +

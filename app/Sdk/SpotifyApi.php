@@ -74,8 +74,6 @@ class SpotifyApi
 
             $this->accessToken = $jsonResult['access_token'];
         } catch (\Exception $exception) {
-            //$logDetails['exception'] = $exception->getMessage();
-            //$this->logger->error('Could not obtain token', $logDetails);
             throw $exception;
         }
     }
