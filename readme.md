@@ -1,6 +1,6 @@
 # Spotify Api Consumer
 #### About The Application
-Spotify Api Consumer created for consume Spotify Api's and search over albums, artists, playlists, tracks or a combination of them. 
+Spotify Api Consumer created for consume Spotify API's and search over albums, artists, playlists, tracks or a combination of them. 
 You can basically do:
   - Register and login on the application
   - Search over albums, artists, playlists, tracks or combination of them.
