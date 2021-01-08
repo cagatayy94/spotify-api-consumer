@@ -1,72 +1,149 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Spotify Api Consumer
+#### About The Application
+Spotify Api Consumer created for consume Spotify API's and search over albums, artists, playlists, tracks or a combination of them. 
+You can basically do:
+  - Register and login on the application
+  - Search over albums, artists, playlists, tracks or combination of them.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+#### Working Demo
+  - Open the address with your browser `https://www.spotify-api-consumer.tk`
+  - You can register on application or use this credentials for login
+  - Username: `user@user.com`
+  - Password: `123123aa`
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Note: This application builded with Laravel Framework. Before the installation be sure your machine ready for run Laravel properly. You can find the Laravel requirements here: `https://laravel.com/docs/5.8/installation`
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Open your terminal and clone the project on your machine.
+```sh
+git clone https://github.com/cagatayy94/spotify-api-consumer
+```
+Change your current directory with command below.
+```sh
+cd spotify-api-consumer
+```
+Create new database for the application. You can use Laravel supported database systems which is:
+ - MySQL
+ - Postgres
+ - SQLite
+ - SQL Server
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+After creating your database you should create `.env` file for application work properly. You can use the `.env.example` file on application root folder for set your credentials.
 
-## Learning Laravel
+Note: Don't forget update that credentials below, otherwise project will not run
+```sh
+DB_CONNECTION=#DB_DRIVER# (sqlite, mysql, pgsql or sqlsrv)
+DB_HOST=#DB_HOST#
+DB_PORT=#DB_PORT#
+DB_DATABASE=#DB_NAME#
+DB_USERNAME=#DB_USER_NAME
+DB_PASSWORD=#DB_PASSWORD#
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+SPOTIFY_ENDPOINT=#SPOTIFY_ENDPOINT#
+SPOTIFY_CLIENT_ID=#SPOTIFY_CLIENT_ID#
+APP_TO_SPOTIFY_SECRET=#SPOTIFY_CLIENT_ID#
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+After changed the credentials you should save the file as `.env`
 
-## Laravel Sponsors
+Now you can install dependencies:
+```sh
+composer install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+After installed dependencies, you are ready to migrate database:
+```sh
+php artisan migrate
+```
+If you get the following output, it means the application created necessary tables for connect and work.
+```sh
+Migration table created successfully.
+```
+If you getting any error about migrating the database, probably you wrote your database credentials wrong or you didn't create database properly.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
+Before start the application you should generate application key with:
+```sh
+php artisan key:generate
+```
 
-## Contributing
+### Run On Localhost
+If you want to run application on your local machine you can use PHP development server:
+```sh
+php artisan serve
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Deployment 
 
-## Security Vulnerabilities
+First of all you should configure your remote machine first.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you don't know how to configure your remote machine, you can look the documentation for ubuntu below.
 
-## License
+`https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-20-04`
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+When you configured your remote machine, be sure your machine has the following requirements for Laravel run on:
+ - PHP >= 7.1.3
+ - BCMath PHP Extension
+ - Ctype PHP Extension
+ - JSON PHP Extension
+ - Mbstring PHP Extension
+ - OpenSSL PHP Extension
+ - PDO PHP Extension
+ - Tokenizer PHP Extension
+ - XML PHP Extension
+
+When your machine ready, you should follow the instructions below, which I mentioned before in this documentation:
+ - Clone the Project
+ - Create the Database
+ - Create your `.env` file
+ - Install dependencies with: `composer install`
+ - Migrate database with: `php artisan migrate`
+ - Generate the app key with: `php artisan key:generate`
+
+##### Important Notes:
+ 1.  If you install Nginx or Apache for host the application, be aware of your web server configuration pointing the application **public** folder.
+
+For nginx you can look the example below:
+
+```nginx
+#/etc/nginx/sites-available/spotify-api-consumer
+server {
+    listen 80;
+    server_name server_domain_or_IP;
+    root /var/www/spotify-api-consumer/public;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    index index.html index.htm index.php;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+```
+
+ 2. If you don't want to application shows the errors on production, you should set some `.env` parameters like:
+ - `APP_ENV=production` 
+ - `APP_DEBUG=false`
+
+Created by **Mustafa Çağatay Yılmaz**
