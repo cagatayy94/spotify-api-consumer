@@ -6,7 +6,7 @@ You can basically do:
   - Search over albums, artists, playlists, tracks or combination of them.
 
 #### Working Demo
-  - Open the address with your browser `https://www.spotify-consumer.tk`
+  - Open the address with your browser `https://spotify-consumer.tk`
   - You can register on application or use this credentials for login
   - Username: `user@user.com`
   - Password: `123123aa`
