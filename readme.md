@@ -44,6 +44,9 @@ SPOTIFY_ENDPOINT=#SPOTIFY_ENDPOINT#
 SPOTIFY_CLIENT_ID=#SPOTIFY_CLIENT_ID#
 APP_TO_SPOTIFY_SECRET=#SPOTIFY_CLIENT_ID#
 ```
+Note: For the SPOTIFY_CLIENT_ID and APP_TO_SPOTIFY_SECRET parameters you should follow this steps: 
+1. Login at here https://developer.spotify.com/dashboard/applications 
+2. Create new app and you will see your client secret and client id inside the app which you created now.
 
 After changed the credentials you should save the file as `.env`
 
