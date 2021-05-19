@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }} Try email: user@user.com pass: 123123aa </div>
+                <div class="card-header">{{ __('Login') }} <br><br>Try <br>email: user@user.com <br>pass: 123123aa </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
